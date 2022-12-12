@@ -6,8 +6,12 @@ $mysql_db = "";
 $warn = "";
 $phase = 1;
 if (file_exists("dlib-config.php")) {
-    header("Location: index.php");
-    die();
+    include("dlib-config.php");
+    $i = count(file("dlib-config.php"));
+    if ($i > 5) {
+        header("Location: index.php");
+        die("Installation complete. Please delete setup.php");
+    }
 } 
 
 if(isset($_POST['checkMYSQL'])) 
@@ -33,8 +37,6 @@ if(isset($_POST['checkMYSQL']))
         fwrite($myfile, $txt);
         $txt = "define('DB_NAME', '" . $mysql_db . "');\n";
         fwrite($myfile, $txt);
-        $txt = "?>";
-        fwrite($myfile, $txt);
         fclose($myfile);
         mysqli_close($conn);
     }
@@ -43,6 +45,12 @@ if(isset($_POST['checkMYSQL']))
 if(isset($_POST['finishweb'])) {
     include('dlib-config.php');
     $webaddress = $_POST['webaddress'];
+    $myfile = fopen("dlib-config.php", "a") or die("Unable to open file!");
+    $txt = "define('WEB_ADDRESS', '" . $webaddress . "');\n";
+    fwrite($myfile, $txt);
+    $txt = "?>";
+    fwrite($myfile, $txt);
+    fclose($myfile);
     $file = $_FILES['logo'];
     $file_name = $file['name'];
     $file_tmp = $file['tmp_name'];

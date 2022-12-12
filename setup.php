@@ -213,13 +213,6 @@ if ($_FILES['file']['size'] > $max_file_size) {
         }
     ?>
 
-
-        <section id="checkMYSQL">
-
-        </section>
-        <section id="detail">
-
-        </section>
     </body>
 </html>
 

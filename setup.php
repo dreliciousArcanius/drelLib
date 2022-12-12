@@ -78,6 +78,64 @@ if(isset($_POST['finishweb'])) {
     )";
     mysqli_query($conn, $sql);
 
+    // create table book if not exist which consists of title, image, quantity, publishDate, author, publisher, isbn, language, category, dateAdded, id
+    $sql = "CREATE TABLE IF NOT EXISTS book (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        image VARCHAR(255) NOT NULL,
+        quantity INT(6) NOT NULL,
+        publishDate VARCHAR(255) NOT NULL,
+        author VARCHAR(255) NOT NULL,
+        publisher VARCHAR(255) NOT NULL,
+        isbn VARCHAR(255) NOT NULL,
+        language VARCHAR(255) NOT NULL,
+        category VARCHAR(255) NOT NULL,
+        dateAdded DATE NOT NULL
+    )";
+
+    mysqli_query($conn, $sql);
+
+    // create table borrowBook if not exist which consists of email, bookSecretCode, dateBorrowed, dateDue, bookID, isbn, dateReturned, borrowID, id
+    $sql = "CREATE TABLE IF NOT EXISTS borrowBook (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        bookSecretCode VARCHAR(255) NOT NULL,
+        dateBorrowed DATE NOT NULL,
+        dateDue DATE NOT NULL,
+        bookID INT(6) NOT NULL,
+        isbn VARCHAR(255) NOT NULL,
+        dateReturned DATE NOT NULL,
+        borrowID INT(6) NOT NULL
+    )";
+
+    mysqli_query($conn, $sql);
+
+    // create table borrowIncident if not exist which consists of date, incidentType, incidentDescription, penalty, isbn, bookID, borrowID, id
+    $sql = "CREATE TABLE IF NOT EXISTS borrowIncident (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        date DATE NOT NULL,
+        incidentType VARCHAR(255) NOT NULL,
+        incidentDescription VARCHAR(255) NOT NULL,
+        penalty INT(6) NOT NULL,
+        isbn VARCHAR(255) NOT NULL,
+        bookID INT(6) NOT NULL,
+        borrowID INT(6) NOT NULL
+    )";
+
+    mysqli_query($conn, $sql);
+
+    // create table borrowerCredibility if not exist which consists of email, timesBorrowed, timesOntime, timesLate, timesLost, timesDamaged, id
+    $sql = "CREATE TABLE IF NOT EXISTS borrowerCredibility (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        email VARCHAR(255) NOT NULL,
+        timesBorrowed INT(6) NOT NULL,
+        timesOntime INT(6) NOT NULL,
+        timesLate INT(6) NOT NULL,
+        timesLost INT(6) NOT NULL,
+        timesDamaged INT(6) NOT NULL
+    )";
+
+
     // enter data into coreLibrary
     $sql = "INSERT INTO coreLibrary (libraryName, libraryAddress, libraryLogo) VALUES ('$libraryname', '$libraryaddress', '$file_dest')";
     mysqli_query($conn, $sql);
@@ -212,7 +270,6 @@ if ($_FILES['file']['size'] > $max_file_size) {
             echo "<script>document.getElementById('form2').style.display = 'block';</script>";
         }
     ?>
-
     </body>
 </html>
 

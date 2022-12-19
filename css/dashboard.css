@@ -1,0 +1,285 @@
+.sidebar-pc {
+    position: static;
+    display: block;
+    border-right: 1px solid rgb(248, 248, 248);
+    animation: slideInFromLeft 0.25s ease-in-out;
+}
+/* Do not touch : @Drelicious on GitHub | If it works, don't touch. */
+.flexbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    height: auto;
+}
+
+.fill {
+    width: 100%;
+}
+
+
+.main-contentfix {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    height: auto;
+}
+
+
+.card {
+    margin-top: 25px;
+    width: auto;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    margin-right: 3%;
+    padding-top: 1vh;
+    border-radius: 1vh;
+    text-indent: 1vh;
+    background-color: white;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* ends of do not touch or change */
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+    
+.card-column {
+    flex-direction: column;
+    padding-right: 100px;
+}
+
+.content {
+    margin-left: 2%;
+}
+
+.menu-map {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    margin-top: 25px;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-mobile {
+    display: none;
+}
+
+.sidebar-toggle {
+    display: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.content {
+    width: calc(100% - 30vh);
+    height: 100%;
+}
+
+#top-borrowed {
+    width: 50vh;
+    height: 100px;
+    overflow-y: auto;
+
+}
+
+@media (min-width: 768px) {
+    .mb {
+        display: block;
+    }
+    .content {
+        width: calc(100% - 30vh);
+    }
+}
+
+.book-icon {
+    width: 90%;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+#reader-container {
+    width: 50%;
+}
+
+#book-info {
+    display: none;
+}
+
+
+
+.card-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 767px) {
+    
+    #top-borrowed {
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    display: block;
+       width: auto;
+       margin: 0;
+       text-indent: 0vh;
+        margin-left: 0px;
+        padding: 0vh;
+        padding-bottom: 25px;
+        margin-right: 30px;
+        margin-top:2px;
+        margin-bottom: 20px;
+        padding-right: 15px;
+        padding-top: 1vh;
+    }
+
+    #top-borrowed img {
+        width: 75%;
+        margin-right: 10px;
+    }
+    .book-icon {
+        width: 100%;
+        text-align: center;
+    }
+    .book-info {
+        display: block;
+        margin: 0;
+        text-align: center;
+    }
+    #reader-container {
+        width: 95%;
+    }
+    #book-info {
+        display: none;
+    }
+    .main-contentfix {
+        display: block;
+    }
+    .main-content {
+        margin-left: 5px;
+    }
+    .content {
+        overflow-x: auto;
+        margin: 0;
+        margin-left: 5px;
+        padding: 0;
+    }
+
+    .card-column {
+        flex-direction: column;
+        padding-right: 0;
+    }
+
+    .card {
+        text-indent: -19vh;
+        margin-left: 15px;
+        padding: 20vh;
+        padding-bottom: 25px;
+        margin-right: 30px;
+        margin-top:2px;
+        margin-bottom: 20px;
+        padding-right: 15px;
+        padding-top: 1vh;
+        border-radius: 1vh;
+        height: auto;
+    }
+
+    .menu-map {
+        margin: 0;
+    }
+
+    .flexbox {
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+        overflow-x: auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .flexbox::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
+     
+    .sidebar-mobile {
+        display: block;
+        margin: 10px;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+    .content {
+        width: calc(100%);
+    }
+    .sidebar-pc {
+        display: none;
+    }
+    .sidebar-pc ul {
+        padding-left: 10px;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: left;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.tab {
+    overflow: hidden;
+    margin-top: 1vh;
+    border: 1px solid #ccc;
+    border-radius: 1vh;
+    background-color: rgb(247, 247, 247);
+    width: 75%;
+  }
+  
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  
+  
+
+  

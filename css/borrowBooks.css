@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header h3 {
+    padding: 1vh;
+}
+
+.box {
+    border-radius: 12px;
+    background-color: #ffffff;
+    margin-top: 5vh;
+    width: 75%;
+}

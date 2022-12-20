@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['email'] = "baidu@baidubrowser.net";
 include("dlib-config.php");
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if (!$conn) {

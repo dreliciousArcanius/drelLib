@@ -65,7 +65,6 @@ for ($z = 0; $z < count($topbooks); $z++) {
 
 }
 
-echo $topbooks[0]['count'];
 
 // get the count of borrowIncident, with the date range of 30 days on the date
 $sql = "SELECT * FROM borrowIncident WHERE date BETWEEN DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW()";
@@ -330,25 +329,19 @@ if (isset($_SESSION['email'])) {
                             <p style="font-family: 'Poppins'; font-size: 2vh; color: black; margin-bottom: 10px;">Top Borrowed Books</p>
                             <div class="top-books-container">
                                 <div class="card" id="top-borrowed">
-                                    <div class="card-row">
-                                            <img src="<?php echo $bookTop[0]['image']; ?>" width="100vh">
-                                        <div class="card-column" style="width: 100%;">
-                                            <p style="font-family: 'Poppins'; font-size: 2vh; color: black;"><?php echo $bookTop[0]['title'];   ?></p>
-                                            <p style="font-family: 'Poppins'; font-size: 1.5vh; color: rgb(98, 98, 100);"><?php echo $bookTop[0]['author'];   ?></p>
-                                            <p style="font-family: 'Poppins'; font-size: 1.5vh; color: rgb(98, 98, 100);"><?php echo $topbooks[0]['count'];   ?> Borrowed (x)</p>
-                                        </div>
-                                        <h1>1</h1>
-                                        </div>
-                                        <div class="card-row" style="margin-top: 20px;">
-                                        <img src="<?php echo $bookTop[1]['image']; ?>" width="100vh">
-                                            <div class="card-column" style="width: 100%;">
-                                            <p style="font-family: 'Poppins'; font-size: 2vh; color: black;"><?php echo $bookTop[1]['title'];   ?></p>
-                                            <p style="font-family: 'Poppins'; font-size: 1.5vh; color: rgb(98, 98, 100);"><?php echo $bookTop[1]['author'];   ?></p>
-                                            <p style="font-family: 'Poppins'; font-size: 1.5vh; color: rgb(98, 98, 100);"><?php echo $topbooks[1]['count'];   ?> Borrowed (x)</p>
-                                        </div>
-                                        <h1>2</h1>
-                                        </div>
-                                    
+                                        <?php 
+                                        for ($m = 0; $m < count($bookTop); $m++ ) {
+                                            echo '<div class="card-row">';
+                                            echo "<img src='" . $bookTop[$m]['image']  ."' id='imagemain' width='100vh'>";
+                                            echo '<div class="card-column" style="width: 100%;">';
+                                            echo '<p id="smale">' . $bookTop[$m]["title"] . '</p>';
+                                            echo "<p id='smile'>" . $bookTop[$m]["author"] . "</p>";
+                            echo "<p id='smile' >" . $topbooks[1]['count'] . " (x) Borrowed</p>";
+                                            echo '</div>';
+                                            echo '<h1>' . $m + 1 . '</h1>';
+                                            echo '</div>';
+                                        }
+                                        ?>                      
                           </div>
                           </div>
 
@@ -360,6 +353,7 @@ if (isset($_SESSION['email'])) {
   // hide div id reader 
     html5QrcodeScanner.clear();
     document.getElementById("reader").style.display = "none";
+    document.getElementById("reader-container").style.display = "none";
     // show div id book-info
     document.getElementById("book-info").style.display = "block";
 }
